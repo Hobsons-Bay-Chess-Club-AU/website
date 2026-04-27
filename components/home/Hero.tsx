@@ -7,7 +7,7 @@ export default function Hero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: `url('https://hobsonsbaychess.com/wp-content/uploads/2022/11/top_cover_home_04.png')`,
+          backgroundImage: `url('/images/hero-bg.png')`,
         }}
       >
         <div className="absolute inset-0 bg-black/50" />

@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo and About */}
           <div className="col-span-1 md:col-span-1">
             <Image
-              src="https://hobsonsbaychess.com/wp-content/uploads/2025/12/5af9878f-9d8a-437b-92e8-d46442b04f8c.png"
+              src="/images/logo.png"
               alt="HBCC Logo"
               width={80}
               height={80}

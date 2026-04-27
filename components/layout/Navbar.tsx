@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <Image
-                src="https://hobsonsbaychess.com/wp-content/uploads/2025/12/5af9878f-9d8a-437b-92e8-d46442b04f8c.png"
+                src="/images/logo.png"
                 alt="HBCC Logo"
                 width={60}
                 height={60}
