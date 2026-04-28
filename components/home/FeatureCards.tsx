@@ -1,67 +1,48 @@
-import Link from "next/link";
-
-const features = [
-  {
-    title: "Play Chess",
-    description: "Weekly club nights + tournaments for all skill levels.",
-    href: "/play-chess",
-    icon: (
-      <svg className="h-8 w-8 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Juniors",
-    description: "Coaching and development pathway for young players.",
-    href: "/juniors",
-    icon: (
-      <svg className="h-8 w-8 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Tournaments",
-    description: "Rated and social events, major opens throughout the year.",
-    href: "/tournaments",
-    icon: (
-      <svg className="h-8 w-8 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A3.323 3.323 0 0010.605 2.02a3.323 3.323 0 00-4.583 4.583 3.323 3.323 0 002.02 5.618 3.323 3.323 0 005.618-2.02 3.323 3.323 0 004.583-4.583z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Membership",
-    description: "Join, save, and support the club's growth.",
-    href: "/membership",
-    icon: (
-      <svg className="h-8 w-8 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-      </svg>
-    ),
-  },
-];
-
 export default function FeatureCards() {
+  const stats = [
+    { number: "50+", label: "Years Serving Community", icon: "castle" },
+    { number: "130+", label: "Active Members", icon: "users" },
+    { number: "99", label: "Juniors in 2025", icon: "user-plus" },
+    { number: "80+", label: "Yearly Club Nights", icon: "calendar" },
+    { number: "30+", label: "Events This Year", icon: "shield" },
+    { number: "100+", label: "Weekly Attendance", icon: "check-user" },
+  ];
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <Link 
-              key={feature.title} 
-              href={feature.href}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow group border-b-4 border-transparent hover:border-red-700"
-            >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600">
-                {feature.description}
-              </p>
-            </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="flex items-center gap-6 group">
+              <div className="text-hbcc-gold">
+                {stat.icon === "castle" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M2 22h20v-2h-2v-4h2v-2h-1v-2h1v-2h-1V8h1V6h-1V4h1V2h-3v2h-2V2h-2v2h-2V2h-2v2H8V2H6v2H4V2H1v2h1v2H1v2h1v2H1v2h1v4H2v2zm2-6h16v4H4v-4z"/></svg>
+                )}
+                {stat.icon === "users" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3s-1.33-3-2.99-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                )}
+                {stat.icon === "user-plus" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                )}
+                {stat.icon === "calendar" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+                )}
+                {stat.icon === "shield" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                )}
+                {stat.icon === "check-user" && (
+                  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                )}
+              </div>
+              <div>
+                <p className="text-6xl md:text-8xl font-antonio font-bold leading-none mb-1 group-hover:text-hbcc-gold transition-colors">
+                  {stat.number}
+                </p>
+                <p className="text-xl md:text-2xl font-antonio font-semibold uppercase tracking-tight text-black/80">
+                  {stat.label}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

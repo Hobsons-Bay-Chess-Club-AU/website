@@ -1,58 +1,64 @@
+import Image from "next/image";
+
 const events = [
   {
-    title: "Honourable Bob Cup Open 2026",
-    date: "TBC 2026",
-    category: "Tournament",
+    day: "27",
+    month: "JAN",
+    title: "HONOURABLE BOB CUP OPEN 2026",
+    time: "ROUND #1 @ 7:30 PM",
+    logo: "/images/logo.png"
   },
   {
-    title: "HBCC Junior Coaching 2026",
-    date: "Weekly Terms",
-    category: "Coaching",
-  },
-  {
-    title: "Honourable Bob Cup Juniors 2026",
-    date: "TBC 2026",
-    category: "Junior Tournament",
-  },
-  {
-    title: "C J S Purdy Cup OPEN 2026",
-    date: "TBC 2026",
-    category: "Tournament",
-  },
+    day: "31",
+    month: "JAN",
+    title: "HONOURABLE BOB CUP JUNIORS 2026",
+    time: "ROUND #1 @ 6 PM",
+    logo: "/images/logo.png"
+  }
 ];
 
 export default function EventsList() {
   return (
-    <section className="py-16">
+    <section className="py-20 bg-[#f4f4f4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900">Upcoming Events</h2>
-            <p className="text-gray-600 mt-2">Join us for our upcoming tournaments and coaching sessions.</p>
-          </div>
-          <a 
-            href="https://portal.hobsonsbaychess.com/public/schedule/events" 
-            target="_blank"
-            className="text-red-700 font-semibold hover:underline"
-          >
-            ALL EVENTS →
+        <div className="flex justify-between items-end mb-12">
+          <h2 className="text-6xl md:text-8xl font-antonio font-bold uppercase leading-none">
+            EVENTS
+          </h2>
+          <a href="/events" className="flex items-center gap-2 text-black font-bold hover:text-hbcc-gold transition-colors">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z"/></svg>
+            ALL EVENTS
           </a>
         </div>
 
-        <div className="space-y-4">
-          {events.map((event) => (
-            <div 
-              key={event.title}
-              className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-white border border-gray-100 rounded-lg hover:border-red-200 transition-colors shadow-sm"
-            >
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-2 py-1 rounded">
-                  {event.category}
-                </span>
-                <h3 className="text-xl font-bold text-gray-900 mt-2">{event.title}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {events.map((event, index) => (
+            <div key={index} className="flex bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+              {/* Date Box */}
+              <div className="bg-hbcc-gold w-24 md:w-32 flex flex-col items-center justify-center text-white py-8">
+                <span className="text-4xl md:text-6xl font-antonio font-bold leading-none">{event.day}</span>
+                <span className="text-xl font-bold">{event.month}</span>
               </div>
-              <div className="mt-4 md:mt-0 text-right">
-                <p className="text-gray-500 font-medium">{event.date}</p>
+              
+              {/* Content */}
+              <div className="flex-grow p-6 md:p-8 flex items-center gap-6">
+                <div className="flex-shrink-0">
+                   <Image 
+                    src={event.logo} 
+                    alt="Logo" 
+                    width={60} 
+                    height={60} 
+                    className="w-12 h-auto opacity-50 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-4xl font-antonio font-bold leading-tight mb-2 group-hover:text-hbcc-gold transition-colors">
+                    {event.title}
+                  </h3>
+                  <p className="text-lg font-bold italic tracking-wider text-black/60 uppercase">
+                    {event.time}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

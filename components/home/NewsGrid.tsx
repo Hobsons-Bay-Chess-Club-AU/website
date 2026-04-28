@@ -27,42 +27,42 @@ const news = [
 
 export default function NewsGrid() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-8">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900">Latest News</h2>
-            <p className="text-gray-600 mt-2">Updates and stories from our chess community.</p>
-          </div>
-          <Link href="/blog" className="text-red-700 font-semibold hover:underline">
-            VIEW ALL NEWS →
+        <div className="flex justify-between items-end mb-12">
+          <h2 className="text-6xl md:text-8xl font-antonio font-bold uppercase leading-none">
+            NEWS
+          </h2>
+          <Link href="/blog" className="flex items-center gap-2 text-black font-bold hover:text-hbcc-gold transition-colors">
+            VIEW ALL NEWS
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {news.map((item) => (
-            <div key={item.title} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative h-48">
+            <div key={item.title} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100">
+              <div className="relative h-64 overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+              <div className="p-8">
+                <p className="text-hbcc-gold font-bold text-sm uppercase tracking-widest mb-3">{item.date}</p>
+                <h3 className="text-2xl font-antonio font-bold text-black mb-4 line-clamp-2 leading-tight group-hover:text-hbcc-gold transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-black/60 font-open-sans text-sm mb-6 line-clamp-2">
                   {item.excerpt}
                 </p>
                 <Link 
                   href={item.href}
-                  className="text-red-700 font-medium hover:text-red-800"
+                  className="inline-flex items-center gap-2 font-bold text-black group-hover:text-hbcc-gold transition-colors"
                 >
-                  Read More
+                  READ MORE
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
                 </Link>
               </div>
             </div>

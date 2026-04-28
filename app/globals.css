@@ -1,27 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Exo:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #191919;
+  
+  --hbcc-gold: #B89650;
+  --hbcc-dark: #191919;
+  --hbcc-dark-gray: #2a2a2a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-hbcc-red: #9e1c20;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-hbcc-gold: var(--hbcc-gold);
+  --color-hbcc-dark: var(--hbcc-dark);
+  
+  --font-antonio: "Antonio", sans-serif;
+  --font-exo: "Exo", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-exo);
+}
+
+h1, h2, h3, .font-antonio {
+  font-family: var(--font-antonio);
 }
